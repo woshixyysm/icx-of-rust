@@ -1,0 +1,25 @@
+[package]
+name = "icx-rustc"
+version = "0.1.0"
+edition = "2021"
+authors = ["mpty"]
+description = "Intel-style wrapper for Rust compiler"
+
+[dependencies]
+clap = { version = "4.5", features = ["derive", "cargo"] }
+colored = "2.1"
+anyhow = "1.0"
+which = "6.0"
+shlex = "1.3"
+indexmap = "2.2"
+regex = "1.10"
+[dev-dependencies]
+assert_cmd = "2.0"
+predicates = "3.1"
+tempfile = "3.10"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
